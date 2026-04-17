@@ -171,5 +171,168 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f1f3f6;
+    }
+
+    /* Top bar */
+    .top-bar {
+      display: flex;
+      padding: 10px;
+      background: #2874f0;
+      color: white;
+      justify-content: space-between;
+    }
+
+    .top-btn {
+      background: #ffeb3b;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    /* Location */
+    .location {
+      padding: 10px;
+      background: white;
+    }
+
+    /* Search */
+    .search-box {
+      padding: 10px;
+      background: white;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    /* Categories */
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      padding: 10px;
+    }
+
+    .categories div {
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 10px;
+    }
+
+    .banner img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Products */
+    .products {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px;
+    }
+
+    .card {
+      background: white;
+      padding: 10px;
+      margin-right: 10px;
+      border-radius: 10px;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top -->
+  <div class="top-bar">
+    <div class="top-btn">Flipkart</div>
+    <div>Travel</div>
+  </div>
+
+  <!-- Location -->
+  <div class="location">
+    📍 Your Location
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" placeholder="Search products">
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div>👕 Fashion</div>
+    <div>📱 Mobiles</div>
+    <div>💄 Beauty</div>
+    <div>💻 Electronics</div>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="https://via.placeholder.com/400x150">
+  </div>
+
+  <!-- Products -->
+  <div class="products">
+    <div class="card">
+      <img src="https://via.placeholder.com/100">
+      <p>Shoes</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100">
+      <p>Mobile</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/100">
+      <p>Watch</p>
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="bottom-nav">
+    <div>🏠 Home</div>
+    <div>📂 Categories</div>
+    <div>🛒 Cart</div>
+    <div>👤 Account</div>
+  </div>
+
+</body>
+</html>
                                                                                                                                                                                                                                                                         
