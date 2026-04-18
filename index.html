@@ -358,4 +358,27 @@
 </html>
        <button style="background: green; color: white; padding: 10px; border: none;">
   Buy Now
-       </button>                                                                                                                                                                                                                                                                 
+       </button> 
+<div class="product">
+  <h3>Math Book</h3>
+  <p>Price: ₹299</p>
+
+  <button onclick="buyProduct('Math Book', 299)">
+    Buy Now
+  </button>
+</div>
+
+<script>
+  function buyProduct(name, price) {
+    alert("You selected: " + name + "\nPrice: ₹" + price);
+
+    // ✅ Tumhara WhatsApp Number add kiya gaya hai
+    let phone = "919202728243";
+
+    let message = "Hello, I want to buy " + name + " for ₹" + price;
+
+    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+</script>
