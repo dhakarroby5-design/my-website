@@ -825,3 +825,111 @@ function selectSuggestion(name){
 }
 
     </script>
+    <div class="product" data-id="1">
+  <h3>Math Book</h3>
+  <p>₹299</p>
+
+  <input type="number" value="1" min="1" id="qty1">
+
+  <button onclick="addToCart(1, 'Math Book', 299)">
+    Add to Cart
+  </button>
+
+  <button onclick="addToWishlist(1, 'Math Book')">
+    ❤️ Wishlist
+  </button>
+    </div>
+    <script>
+
+function addToCart(id, name, price){
+  let qty = document.getElementById("qty"+id).value;
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  cart.push({
+    id: id,
+    name: name,
+    price: price,
+    qty: qty
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added to cart!");
+}
+
+    </script>
+    <h2>My Cart</h2>
+<div id="cartItems"></div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let html = "";
+let total = 0;
+
+cart.forEach(item => {
+  let itemTotal = item.price * item.qty;
+  total += itemTotal;
+
+  html += `
+    <p>${item.name} - ₹${item.price} x ${item.qty} = ₹${itemTotal}</p>
+  `;
+});
+
+html += "<h3>Total: ₹" + total + "</h3>";
+
+document.getElementById("cartItems").innerHTML = html;
+</script>
+<script>
+
+function addToWishlist(id, name){
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  wishlist.push({id, name});
+
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+  alert("Added to wishlist!");
+}
+
+</script>
+<h2>Admin Dashboard</h2>
+
+<p>Total Orders: <span id="totalOrders"></span></p>
+<p>Total Revenue: ₹<span id="totalRevenue"></span></p>
+
+<script>
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+document.getElementById("totalOrders").innerText = orders.length;
+
+let revenue = 0;
+orders.forEach(o => revenue += o.amount);
+
+document.getElementById("totalRevenue").innerText = revenue;
+</script>
+<style>
+
+body {
+  font-family: Arial;
+  background: #f1f3f6;
+}
+
+.product {
+  background: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+button {
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+</style>
