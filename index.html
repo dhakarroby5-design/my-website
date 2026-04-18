@@ -1,264 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <script>
-function openMenu() {
-  document.getElementById("menu").style.left = "0";
-}
-
-function closeMenu() {
-  document.getElementById("menu").style.left = "-250px";
-}
-  </script>
-  <li onclick="getLocation()">📍 Location: <span id="locationText">Detecting...</span></li>
 <head>
-  <title>Teacher Store</title>
+  <title>Best Study Books</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <!-- SEO -->
+  <meta name="description" content="Best books for class 10, 12, JEE preparation with discount links">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f1f3f6;
-    }
-
-    /* HEADER */
-    header {
-      background: #2874f0;
-      padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: white;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .search {
-      width: 50%;
-      padding: 8px;
-      border-radius: 3px;
-      border: none;
-    }
-
-    .cart {
-      background: #ffcc00;
-      padding: 8px 12px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    /* HERO */
-    .hero {
-      margin: 15px;
-      padding: 30px;
-      background: linear-gradient(90deg, #2874f0, #6fa8ff);
-      color: white;
-      text-align: center;
-      border-radius: 10px;
-    }
-
-    .hero button {
-      background: #ffcc00;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    /* PRODUCTS */
-    .container {
-      display: flex;
-      gap: 15px;
-      padding: 15px;
-      flex-wrap: wrap;
-    }
-
+    body {font-family:Arial; margin:0; background:#f1f3f6;}
+    header {background:#2874f0; color:white; padding:12px; text-align:center;}
+    .container {padding:15px;}
     .card {
-      background: white;
-      width: 45%;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
+      background:white;
+      padding:15px;
+      margin-bottom:15px;
+      border-radius:10px;
     }
-
-    .price {
-      color: green;
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
     .btn {
-      background: #ffcc00;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
+      background:#ff9900;
+      color:white;
+      padding:10px;
+      border:none;
+      width:100%;
     }
-
-    /* BOOK SECTION */
-    .book {
-      background: white;
-      margin: 15px;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .buy {
-      background: #2874f0;
-      color: white;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    /* CHECKOUT */
-    .checkout {
-      background: white;
-      margin: 15px;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    input {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-    }
-
   </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Teacher Store</div>
-  <input class="search" placeholder="Search for teachers, books...">
-  <div class="cart">Cart</div>
+  <h2>Best Study Books 📚</h2>
 </header>
 
-<div class="hero">
-  <h2>Find Best Teachers</h2>
-  <p>50% OFF on Tuition</p>
-  <button>Explore</button>
-</div>
-
 <div class="container">
+
+  <!-- PRODUCT 1 -->
   <div class="card">
-    <h3>Math Teacher</h3>
-    <div class="price">₹500/month</div>
-    ⭐⭐⭐⭐⭐
-    <br><br>
-    <button class="btn">Add to Cart</button>
+    <h3>Class 12 Math Book</h3>
+    <p>Best for Board + JEE preparation</p>
+
+    <a href="https://www.flipkart.com/?affid=YOURID" target="_blank">
+      <button class="btn">Buy on Flipkart</button>
+    </a>
   </div>
 
+  <!-- PRODUCT 2 -->
   <div class="card">
-    <h3>Science Teacher</h3>
-    <div class="price">₹600/month</div>
-    ⭐⭐⭐⭐⭐
-    <br><br>
-    <button class="btn">Add to Cart</button>
-  </div>
-</div>
+    <h3>Science Guide Book</h3>
+    <p>Top rated book for exams</p>
 
-<div class="book">
-  <h3>Math Book</h3>
-  <p>₹299</p>
-
-  <!-- Flipkart Affiliate Link -->
-  <a href="https://www.flipkart.com/" target="_blank">
-    <button class="buy">Buy on Flipkart</button>
-  </a>
-</div>
-
-<div class="checkout">
-  <h2>Checkout (COD)</h2>
-  <input placeholder="Full Name">
-  <input placeholder="Address">
-  <input placeholder="Mobile Number">
-  <button class="btn">Place Order</button>
-</div>
-
-</body><div id="menu" class="menu">
-  <div class="menu-header">
-    <h3>Hello, User</h3>
-    <span onclick="closeMenu()">✖</span>
+    <a href="https://www.flipkart.com/?affid=YOURID" target="_blank">
+      <button class="btn">Check Price</button>
+    </a>
   </div>
 
-  <ul>
-    <li>🌐 Language: English / Hindi</li>
-    <li>📍 Location: India</li>
-    <li>👤 My Account</li>
-    <li>📦 Orders</li>
-    <li>❤️ Wishlist</li>
-    <li>⚙ Settings</li>
-    <li>❓ Help Center</li>
-  </ul>
 </div>
+
+</body>
 </html>
-.menu {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background: white;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-  transition: 0.3s;
-  z-index: 1000;
-}
-
-.menu-header {
-  background: #2874f0;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.menu ul li {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.menu ul li:hover {
-  background: #f1f3f6;
-}
-<script>
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, showError);
-  } else {
-    document.getElementById("locationText").innerText = "Not Supported";
-  }
-}
-
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-
-  // Reverse Geocoding (City Name)
-  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
-    .then(res => res.json())
-    .then(data => {
-      let city = data.address.city || data.address.town || data.address.village;
-      let state = data.address.state;
-
-      document.getElementById("locationText").innerText = city + ", " + state;
-    });
-}
-
-function showError(error) {
-  document.getElementById("locationText").innerText = "Location Denied";
-}
-</script>
