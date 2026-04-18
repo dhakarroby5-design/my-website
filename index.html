@@ -709,3 +709,119 @@ window.updateStatus = function(id, status){
   });
 }
 </script>
+  <input type="text" id="searchInput" placeholder="Search products..." onkeyup="searchProduct()" style="width:60%; padding:8px;">
+  <script>
+function searchProduct(){
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let products = document.getElementsByClassName("product");
+
+  for(let i = 0; i < products.length; i++){
+    let text = products[i].innerText.toLowerCase();
+
+    if(text.includes(input)){
+      products[i].style.display = "block";
+    } else {
+      products[i].style.display = "none";
+    }
+  }
+}
+  </script>
+  <style>
+#searchInput {
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+  </style>
+  <!-- 🔍 Search -->
+<input type="text" id="searchInput" placeholder="Search..." onkeyup="showSuggestions()" style="width:60%; padding:8px;">
+<div id="suggestions" style="background:#fff; border:1px solid #ccc;"></div>
+
+<br><br>
+
+<!-- 📂 Category Filter -->
+<select id="categoryFilter" onchange="filterProducts()">
+  <option value="all">All</option>
+  <option value="book">Books</option>
+  <option value="notes">Notes</option>
+  <option value="course">Course</option>
+</select>
+
+<!-- 💰 Price Filter -->
+<select id="priceFilter" onchange="filterProducts()">
+  <option value="all">All Price</option>
+  <option value="100">Below ₹100</option>
+  <option value="500">Below ₹500</option>
+</select>
+
+<!-- ⭐ Rating Filter -->
+<select id="ratingFilter" onchange="filterProducts()">
+  <option value="all">All Ratings</option>
+  <option value="4">4
+    <div class="product" data-category="book" data-price="299" data-rating="4">
+  <h3>Math Book</h3>
+  <p>₹299</p>
+</div>
+
+<div class="product" data-category="notes" data-price="99" data-rating="3">
+  <h3>Physics Notes</h3>
+  <p>₹99</p>
+</div>
+
+<div class="product" data-category="course" data-price="499" data-rating="5">
+  <h3>JEE Course</h3>
+  <p>₹499</p>
+</div>
+    <script>
+
+// 🔍 Filter system
+function filterProducts(){
+  let category = document.getElementById("categoryFilter").value;
+  let price = document.getElementById("priceFilter").value;
+  let rating = document.getElementById("ratingFilter").value;
+
+  let products = document.getElementsByClassName("product");
+
+  for(let i=0; i<products.length; i++){
+    let p = products[i];
+
+    let pCategory = p.getAttribute("data-category");
+    let pPrice = parseInt(p.getAttribute("data-price"));
+    let pRating = parseInt(p.getAttribute("data-rating"));
+
+    let show = true;
+
+    if(category !== "all" && pCategory !== category) show = false;
+    if(price !== "all" && pPrice > parseInt(price)) show = false;
+    if(rating !== "all" && pRating < parseInt(rating)) show = false;
+
+    p.style.display = show ? "block" : "none";
+  }
+}
+
+    </script>
+    <script>
+
+let productNames = ["Math Book", "Physics Notes", "JEE Course"];
+
+function showSuggestions(){
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let suggestionBox = document.getElementById("suggestions");
+
+  suggestionBox.innerHTML = "";
+
+  if(input === "") return;
+
+  productNames.forEach(name => {
+    if(name.toLowerCase().includes(input)){
+      suggestionBox.innerHTML += 
+        "<div onclick='selectSuggestion(\""+name+"\")'>" + name + "</div>";
+    }
+  });
+}
+
+function selectSuggestion(name){
+  document.getElementById("searchInput").value = name;
+  document.getElementById("suggestions").innerHTML = "";
+}
+
+    </script>
