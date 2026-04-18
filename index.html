@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+  <script>
+function openMenu() {
+  document.getElementById("menu").style.left = "0";
+}
+
+function closeMenu() {
+  document.getElementById("menu").style.left = "-250px";
+}
+  </script>
 <head>
   <title>Teacher Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -173,5 +182,54 @@
   <button class="btn">Place Order</button>
 </div>
 
-</body>
+</body><div id="menu" class="menu">
+  <div class="menu-header">
+    <h3>Hello, User</h3>
+    <span onclick="closeMenu()">✖</span>
+  </div>
+
+  <ul>
+    <li>🌐 Language: English / Hindi</li>
+    <li>📍 Location: India</li>
+    <li>👤 My Account</li>
+    <li>📦 Orders</li>
+    <li>❤️ Wishlist</li>
+    <li>⚙ Settings</li>
+    <li>❓ Help Center</li>
+  </ul>
+</div>
 </html>
+.menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.menu-header {
+  background: #2874f0;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.menu ul li:hover {
+  background: #f1f3f6;
+}
