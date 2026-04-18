@@ -933,3 +933,132 @@ button {
 }
 
 </style>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// 📲 Recaptcha
+window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
+
+// 📲 Send OTP
+window.sendOTP = function(){
+  let phone = document.getElementById("phone").value;
+
+  signInWithPhoneNumber(auth, phone, window.recaptchaVerifier)
+    .then((confirmationResult) => {
+      window.confirmationResult = confirmationResult;
+      alert("OTP Sent!");
+    });
+}
+
+// ✅ Verify OTP
+window.verifyOTP = function(){
+  let code = document.getElementById("otp").value;
+
+  confirmationResult.confirm(code).then((result) => {
+    alert("Login Success");
+  });
+}
+</script>
+
+<div id="recaptcha-container"></div>
+<input id="phone" placeholder="+91XXXXXXXXXX">
+<button onclick="sendOTP()">Send OTP</button>
+
+<input id="otp" placeholder="Enter OTP">
+<button onclick="verifyOTP()">Verify</button>
+    <script type="module">
+import { getFirestore, collection, addDoc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const db = getFirestore();
+
+// 📦 Order Save
+async function saveOrder(user, amount){
+  await addDoc(collection(db, "orders"), {
+    user: user,
+    amount: amount,
+    status: "Pending",
+    date: new Date()
+  });
+
+  alert("Order Saved!");
+}
+    </script>
+    <script type="module">
+import { getFirestore, collection, onSnapshot } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const db = getFirestore();
+
+let user = "currentUser"; // auth से लो
+
+onSnapshot(collection(db, "orders"), (snapshot)=>{
+  let html = "";
+
+  snapshot.forEach(doc => {
+    let data = doc.data();
+
+    if(data.user === user){
+      html += `
+        <p>₹${data.amount} - ${data.status}</p>
+      `;
+    }
+  });
+
+  document.getElementById("orders").innerHTML = html;
+});
+</script>
+
+<div id="orders"></div>
+<script type="module">
+import { getFirestore, collection, onSnapshot, doc, updateDoc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const db = getFirestore();
+
+onSnapshot(collection(db, "orders"), (snapshot)=>{
+  let html = "";
+
+  snapshot.forEach(d => {
+    let data = d.data();
+
+    html += `
+      <div>
+        <p>${data.user} - ₹${data.amount}</p>
+        <p>Status: ${data.status}</p>
+
+        <button onclick="updateStatus('${d.id}', 'Shipped')">Ship</button>
+        <button onclick="updateStatus('${d.id}', 'Delivered')">Deliver</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("adminOrders").innerHTML = html;
+});
+
+window.updateStatus = async function(id, status){
+  await updateDoc(doc(db, "orders", id), {
+    status: status
+  });
+}
+</script>
+
+<div id="adminOrders"></div>
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /orders/{order} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
