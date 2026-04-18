@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Teacher Store</title>
+  <title>Roket Book Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -17,43 +17,39 @@
       color: white;
       padding: 12px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
-    header h2 {
-      margin: 0;
-    }
-
-    .search-box {
-      width: 40%;
-      padding: 8px;
-      border-radius: 4px;
+    .search {
+      width: 50%;
+      padding: 7px;
+      border-radius: 5px;
       border: none;
     }
 
-    /* MENU */
-    .menu {
-      display: flex;
-      justify-content: space-around;
-      background: white;
-      padding: 10px;
+    .cart-btn {
+      background: #ffcc00;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     /* BANNER */
     .banner {
+      margin: 10px;
+      padding: 20px;
       background: linear-gradient(to right, #2874f0, #6fa8ff);
       color: white;
-      padding: 20px;
       text-align: center;
-      margin: 10px;
       border-radius: 10px;
     }
 
     .banner button {
       background: #ffcc00;
       border: none;
-      padding: 10px 20px;
+      padding: 10px;
       border-radius: 5px;
       font-weight: bold;
     }
@@ -67,10 +63,11 @@
 
     .card {
       background: white;
+      width: 50%;
       padding: 15px;
       border-radius: 10px;
-      width: 50%;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-align: center;
     }
 
     .card button {
@@ -79,9 +76,10 @@
       padding: 8px 15px;
       border-radius: 5px;
       font-weight: bold;
+      cursor: pointer;
     }
 
-    /* PRODUCTS */
+    /* PRODUCT */
     .product {
       background: white;
       margin: 10px;
@@ -93,20 +91,33 @@
       background: #2874f0;
       color: white;
       border: none;
-      padding: 8px 12px;
+      padding: 8px;
       border-radius: 5px;
     }
 
-    /* CART */
+    /* CART (HIDDEN DEFAULT) */
     .cart {
       position: fixed;
-      right: 0;
+      right: -250px;
       top: 0;
-      width: 200px;
+      width: 250px;
       height: 100%;
       background: white;
-      padding: 10px;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      padding: 15px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .cart.active {
+      right: 0;
+    }
+
+    .close-btn {
+      background: red;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
     }
 
   </style>
@@ -117,54 +128,59 @@
 <!-- HEADER -->
 <header>
   <h2>Teacher Store</h2>
-  <input class="search-box" placeholder="Search here...">
+  <input class="search" placeholder="Search here...">
+  <div class="cart-btn" onclick="openCart()">🛒 Cart</div>
 </header>
-
-<!-- MENU -->
-<div class="menu">
-  <div>🏠 Home</div>
-  <div>📂 Categories</div>
-  <div>🛒 Cart</div>
-  <div>👤 Account</div>
-</div>
 
 <!-- BANNER -->
 <div class="banner">
-  <h2>Find the Best Teachers</h2>
-  <p>20-50% OFF on Tuition</p>
-  <button>Explore Now</button>
+  <h2>Find Best Teachers</h2>
+  <p>50% OFF on Tuition</p>
+  <button>Explore</button>
 </div>
 
 <!-- TEACHERS -->
 <div class="container">
   <div class="card">
     <h3>Math Teacher</h3>
-    <p>Fees: ₹500/month</p>
+    <p>₹500/month</p>
     <p>⭐⭐⭐⭐⭐</p>
-    <button>Add to Cart</button>
+    <button onclick="openCart()">Add to Cart</button>
   </div>
 
   <div class="card">
     <h3>Science Teacher</h3>
-    <p>Fees: ₹600/month</p>
+    <p>₹600/month</p>
     <p>⭐⭐⭐⭐⭐</p>
-    <button>Add to Cart</button>
+    <button onclick="openCart()">Add to Cart</button>
   </div>
 </div>
 
 <!-- PRODUCT -->
 <div class="product">
   <h3>Math Book</h3>
-  <p>Price: ₹299</p>
-  <button>Buy Now</button>
+  <p>₹299</p>
+  <button onclick="openCart()">Buy Now</button>
 </div>
 
 <!-- CART -->
-<div class="cart">
+<div class="cart" id="cart">
+  <button class="close-btn" onclick="closeCart()">X</button>
   <h3>Cart</h3>
   <p>Total: ₹0</p>
   <button>Place Order</button>
 </div>
+
+<!-- JS -->
+<script>
+function openCart() {
+  document.getElementById("cart").classList.add("active");
+}
+
+function closeCart() {
+  document.getElementById("cart").classList.remove("active");
+}
+</script>
 
 </body>
 </html>
