@@ -94,19 +94,25 @@
       padding: 8px;
       border-radius: 5px;
     }
-
-    /* CART (HIDDEN DEFAULT) */
     .cart {
-      position: fixed;
-      right: -250px;
-      top: 0;
-      width: 250px;
-      height: 100%;
-      background: white;
-      padding: 15px;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
+  position: fixed;
+  top: 0;
+  right: -100%;   /* पूरा बाहर भेज दिया */
+  width: 250px;
+  height: 100%;
+  background: white;
+  padding: 15px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;   /* ऊपर दिखे */
+}
+
+.cart.active {
+  right: 0;
+}
+
+
+    
 
     .cart.active {
       right: 0;
