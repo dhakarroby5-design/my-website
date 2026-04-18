@@ -187,6 +187,42 @@ function closeCart() {
   document.getElementById("cart").classList.remove("active");
 }
 </script>
+<script>
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
+    let name = document.getElementById("name").value;
+    let address = document.getElementById("address").value;
+    let phone = document.getElementById("phone").value;
+
+    let paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+
+    if(paymentMethod === "cod") {
+        document.getElementById("message").innerText = 
+        "Order Placed Successfully! Pay Cash on Delivery.";
+        
+        console.log({
+            name: name,
+            address: address,
+            phone: phone,
+            payment: "COD"
+        });
+    }
+});
+</script>
 </body>
 </html>
+<h2>Checkout Page</h2>
+
+<form id="orderForm">
+  <input type="text" id="name" placeholder="Full Name" required><br><br>
+  <input type="text" id="address" placeholder="Address" required><br><br>
+  <input type="tel" id="phone" placeholder="Mobile Number" required><br><br>
+
+  <h3>Payment Method</h3>
+  <input type="radio" name="payment" value="cod" checked> Cash on Delivery<br><br>
+
+  <button type="submit">Place Order</button>
+</form>
+
+<p id="message"></p>
