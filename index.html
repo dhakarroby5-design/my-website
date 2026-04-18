@@ -9,6 +9,7 @@ function closeMenu() {
   document.getElementById("menu").style.left = "-250px";
 }
   </script>
+  <li onclick="getLocation()">📍 Location: <span id="locationText">Detecting...</span></li>
 <head>
   <title>Teacher Store</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -233,3 +234,31 @@ function closeMenu() {
 .menu ul li:hover {
   background: #f1f3f6;
 }
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    document.getElementById("locationText").innerText = "Not Supported";
+  }
+}
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+
+  // Reverse Geocoding (City Name)
+  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+    .then(res => res.json())
+    .then(data => {
+      let city = data.address.city || data.address.town || data.address.village;
+      let state = data.address.state;
+
+      document.getElementById("locationText").innerText = city + ", " + state;
+    });
+}
+
+function showError(error) {
+  document.getElementById("locationText").innerText = "Location Denied";
+}
+</script>
