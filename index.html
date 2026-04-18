@@ -1062,3 +1062,174 @@ service cloud.firestore {
     }
   }
 }
+    
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Teacher Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f1f3f6;
+    }
+
+    /* HEADER */
+    header {
+      background: #2874f0;
+      color: white;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    .search-box {
+      width: 40%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    /* MENU */
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      background: white;
+      padding: 10px;
+    }
+
+    /* BANNER */
+    .banner {
+      background: linear-gradient(to right, #2874f0, #6fa8ff);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    .banner button {
+      background: #ffcc00;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* CARDS */
+    .container {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 50%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .card button {
+      background: #ffcc00;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* PRODUCTS */
+    .product {
+      background: white;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .product button {
+      background: #2874f0;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    /* CART */
+    .cart {
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: white;
+      padding: 10px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h2>Teacher Store</h2>
+  <input class="search-box" placeholder="Search here...">
+</header>
+
+<!-- MENU -->
+<div class="menu">
+  <div>🏠 Home</div>
+  <div>📂 Categories</div>
+  <div>🛒 Cart</div>
+  <div>👤 Account</div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <h2>Find the Best Teachers</h2>
+  <p>20-50% OFF on Tuition</p>
+  <button>Explore Now</button>
+</div>
+
+<!-- TEACHERS -->
+<div class="container">
+  <div class="card">
+    <h3>Math Teacher</h3>
+    <p>Fees: ₹500/month</p>
+    <p>⭐⭐⭐⭐⭐</p>
+    <button>Add to Cart</button>
+  </div>
+
+  <div class="card">
+    <h3>Science Teacher</h3>
+    <p>Fees: ₹600/month</p>
+    <p>⭐⭐⭐⭐⭐</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div class="product">
+  <h3>Math Book</h3>
+  <p>Price: ₹299</p>
+  <button>Buy Now</button>
+</div>
+
+<!-- CART -->
+<div class="cart">
+  <h3>Cart</h3>
+  <p>Total: ₹0</p>
+  <button>Place Order</button>
+</div>
+
+</body>
+</html>
