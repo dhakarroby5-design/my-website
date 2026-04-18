@@ -1,61 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Best Study Books</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <meta name="description" content="Best books for class 10, 12, JEE preparation with discount links">
-
+  <title>Ludo Star Roby Version</title>
   <style>
-    body {font-family:Arial; margin:0; background:#f1f3f6;}
-    header {background:#2874f0; color:white; padding:12px; text-align:center;}
-    .container {padding:15px;}
-    .card {
-      background:white;
-      padding:15px;
-      margin-bottom:15px;
-      border-radius:10px;
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #222;
+      color: white;
     }
-    .btn {
-      background:#ff9900;
-      color:white;
-      padding:10px;
-      border:none;
-      width:100%;
+
+    h1 {
+      margin-top: 10px;
+    }
+
+    #board {
+      width: 320px;
+      height: 320px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(8, 40px);
+      grid-template-rows: repeat(8, 40px);
+      gap: 2px;
+    }
+
+    .cell {
+      width: 40px;
+      height: 40px;
+      background: #555;
+    }
+
+    .player1 {
+      background: red;
+      border-radius: 50%;
+    }
+
+    .player2 {
+      background: blue;
+      border-radius: 50%;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 18px;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h2>Best Study Books 📚</h2>
-</header>
+<h1>🎲 Ludo Star Roby Version</h1>
+<p id="turn">Player 1 Turn</p>
 
-<div class="container">
+<div id="board"></div>
 
-  <!-- PRODUCT 1 -->
-  <div class="card">
-    <h3>Class 12 Math Book</h3>
-    <p>Best for Board + JEE preparation</p>
+<button onclick="rollDice()">Roll Dice</button>
+<p id="dice">Dice: -</p>
 
-    <a href="https://www.flipkart.com/?affid=YOURID" target="_blank">
-      <button class="btn">Buy on Flipkart</button>
-    </a>
-  </div>
+<script>
+let board = document.getElementById("board");
+let turnText = document.getElementById("turn");
+let diceText = document.getElementById("dice");
 
-  <!-- PRODUCT 2 -->
-  <div class="card">
-    <h3>Science Guide Book</h3>
-    <p>Top rated book for exams</p>
+let cells = [];
+let player1Pos = 0;
+let player2Pos = 0;
+let turn = 1;
 
-    <a href="https://www.flipkart.com/?affid=YOURID" target="_blank">
-      <button class="btn">Check Price</button>
-    </a>
-  </div>
+// Create board
+for (let i = 0; i < 64; i++) {
+  let cell = document.createElement("div");
+  cell.classList.add("cell");
+  board.appendChild(cell);
+  cells.push(cell);
+}
 
-</div>
+// Draw players
+function drawPlayers() {
+  cells.forEach(cell => {
+    cell.innerHTML = "";
+  });
+
+  let p1 = document.createElement("div");
+  p1.classList.add("player1");
+
+  let p2 = document.createElement("div");
+  p2.classList.add("player2");
+
+  cells[player1Pos].appendChild(p1);
+  cells[player2Pos].appendChild(p2);
+}
+
+drawPlayers();
+
+// Dice roll
+function rollDice() {
+  let dice = Math.floor(Math.random() * 6) + 1;
+  diceText.innerText = "Dice: " + dice;
+
+  if (turn === 1) {
+    player1Pos += dice;
+    if (player1Pos >= 63) {
+      alert("🎉 Player 1 Wins!");
+      location.reload();
+    }
+    turn = 2;
+    turnText.innerText = "Player 2 Turn";
+  } else {
+    player2Pos += dice;
+    if (player2Pos >= 63) {
+      alert("🎉 Player 2 Wins!");
+      location.reload();
+    }
+    turn = 1;
+    turnText.innerText = "Player 1 Turn";
+  }
+
+  drawPlayers();
+}
+</script>
 
 </body>
 </html>
