@@ -340,6 +340,19 @@
     <div>🛒 Cart</div>
     <div>👤 Account</div>
   </div>
+  <script>
+  function buyProduct(name, price) {
+    alert("You selected: " + name + "\nPrice: ₹" + price);
+
+    // WhatsApp order (simple method)
+    let phone = "91XXXXXXXXXX"; // apna number daalo
+    let message = "Hello, I want to buy " + name + " for ₹" + price;
+
+    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+  </script>
 
 </body>
 </html>
