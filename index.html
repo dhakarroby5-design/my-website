@@ -1,58 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rocket Store</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<title>Rocket Book Store</title>
 
-<body>
-
-<header>
-  <h1>🚀 Rocket Store</h1>
-  <input type="text" placeholder="Search products...">
-</header>
-
-<div class="container">
-
-  <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h3>Science Book</h3>
-    <p>₹199</p>
-    <button onclick="addToCart('Science Book',199)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h3>Math Book</h3>
-    <p>₹149</p>
-    <button onclick="addToCart('Math Book',149)">Add to Cart</button>
-  </div>
-
-  <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h3>Notebook</h3>
-    <p>₹99</p>
-    <button onclick="addToCart('Notebook',99)">Add to Cart</button>
-  </div>
-
-</div>
-
-<div class="cart">
-  <h2>🛒 Cart</h2>
-  <ul id="cartItems"></ul>
-  <h3 id="total">Total: ₹0</h3>
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+<style>
 body {
-  font-family: Arial;
   margin: 0;
+  font-family: Arial;
   background: #f1f3f6;
 }
 
+/* Header */
 header {
   background: #2874f0;
   color: white;
@@ -61,42 +20,108 @@ header {
 }
 
 header input {
-  width: 50%;
-  padding: 8px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
   margin-top: 10px;
 }
 
-.container {
+/* Layout */
+.main {
   display: flex;
-  justify-content: space-around;
-  margin: 20px;
+}
+
+/* Products */
+.products {
+  width: 70%;
+  padding: 20px;
 }
 
 .product {
   background: white;
+  margin-bottom: 20px;
   padding: 15px;
   border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   text-align: center;
-  width: 30%;
 }
 
 .product img {
   width: 100%;
+  height: 150px;
 }
 
 button {
-  background: orange;
+  background: #ff9f00;
   border: none;
   padding: 10px;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
 }
 
+/* Cart */
 .cart {
+  width: 30%;
   background: white;
-  margin: 20px;
   padding: 15px;
-  border-radius: 10px;
 }
+
+.cart button {
+  background: #2874f0;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 Rocket Book Store</h1>
+  <p>Owner: Roby Dhakar</p>
+  <input type="text" placeholder="Search products">
+</header>
+
+<div class="main">
+
+<!-- Products -->
+<div class="products">
+
+  <div class="product">
+    <img src="https://via.placeholder.com/150">
+    <h2>Math Book</h2>
+    <p>₹200</p>
+    <button onclick="addToCart('Math Book',200)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://via.placeholder.com/150">
+    <h2>Science Book</h2>
+    <p>₹300</p>
+    <button onclick="addToCart('Science Book',300)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="https://via.placeholder.com/150">
+    <h2>Notebook</h2>
+    <p>₹100</p>
+    <button onclick="addToCart('Notebook',100)">Add to Cart</button>
+  </div>
+
+</div>
+
+<!-- Cart -->
+<div class="cart">
+  <h2>🛒 Cart</h2>
+  <ul id="cartItems"></ul>
+  <h3 id="total">Total: ₹0</h3>
+  <button>Place Order</button>
+</div>
+
+</div>
+
+<script>
 let total = 0;
 
 function addToCart(name, price) {
@@ -110,3 +135,7 @@ function addToCart(name, price) {
   total += price;
   document.getElementById("total").innerText = "Total: ₹" + total;
 }
+</script>
+
+</body>
+</html>
