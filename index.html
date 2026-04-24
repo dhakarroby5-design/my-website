@@ -1,141 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Rocket Book Store</title>
+  <title>Rocket Selling - Roby Dhakar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+    body { margin: 0; font-family: Arial; }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #f1f3f6;
-}
+    header {
+      background: #ff3c00;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-/* Header */
-header {
-  background: #2874f0;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
+    nav {
+      background: #222;
+      padding: 10px;
+      text-align: center;
+    }
 
-header input {
-  width: 80%;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  margin-top: 10px;
-}
+    nav a {
+      color: white;
+      margin: 10px;
+      text-decoration: none;
+    }
 
-/* Layout */
-.main {
-  display: flex;
-}
+    .hero {
+      padding: 40px;
+      text-align: center;
+      background: #f4f4f4;
+    }
 
-/* Products */
-.products {
-  width: 70%;
-  padding: 20px;
-}
+    .btn {
+      background: green;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+    }
 
-.product {
-  background: white;
-  margin-bottom: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center;
-}
+    section {
+      padding: 20px;
+    }
 
-.product img {
-  width: 100%;
-  height: 150px;
-}
+    .product {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
 
-button {
-  background: #ff9f00;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Cart */
-.cart {
-  width: 30%;
-  background: white;
-  padding: 15px;
-}
-
-.cart button {
-  background: #2874f0;
-  margin-top: 10px;
-}
-</style>
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <h1>🚀 Rocket Book Store</h1>
-  <p>Owner: Roby Dhakar</p>
-  <input type="text" placeholder="Search products">
+  <h1>🚀 Rocket Selling</h1>
+  <p>By Roby Dhakar | Best Deals All Over India</p>
 </header>
 
-<div class="main">
+<nav>
+  <a href="#">Home</a>
+  <a href="#products">Products</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<!-- Products -->
-<div class="products">
+<div class="hero">
+  <h2>Welcome to Rocket Selling</h2>
+  <p>Best affiliate products at lowest price</p>
+  <a class="btn" href="https://wa.me/919202728243">Order on WhatsApp</a>
+</div>
+
+<section id="products">
+  <h2>🔥 Featured Products</h2>
 
   <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h2>Math Book</h2>
-    <p>₹200</p>
-    <button onclick="addToCart('Math Book',200)">Add to Cart</button>
+    <h3>Product 1</h3>
+    <p>Best quality product at amazing price.</p>
+    <a class="btn" href="#">Buy Now</a>
   </div>
 
   <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h2>Science Book</h2>
-    <p>₹300</p>
-    <button onclick="addToCart('Science Book',300)">Add to Cart</button>
+    <h3>Product 2</h3>
+    <p>High demand product. Limited stock!</p>
+    <a class="btn" href="#">Buy Now</a>
   </div>
 
-  <div class="product">
-    <img src="https://via.placeholder.com/150">
-    <h2>Notebook</h2>
-    <p>₹100</p>
-    <button onclick="addToCart('Notebook',100)">Add to Cart</button>
-  </div>
+</section>
 
-</div>
+<section id="contact">
+  <h2>📞 Contact Us</h2>
+  <p>Phone: 9202728243</p>
+  <p>Location: Gwalior | Delivery All India</p>
 
-<!-- Cart -->
-<div class="cart">
-  <h2>🛒 Cart</h2>
-  <ul id="cartItems"></ul>
-  <h3 id="total">Total: ₹0</h3>
-  <button>Place Order</button>
-</div>
+  <a class="btn" href="https://wa.me/919202728243">Chat on WhatsApp</a>
+</section>
 
-</div>
-
-<script>
-let total = 0;
-
-function addToCart(name, price) {
-  let cart = document.getElementById("cartItems");
-
-  let item = document.createElement("li");
-  item.innerText = name + " - ₹" + price;
-
-  cart.appendChild(item);
-
-  total += price;
-  document.getElementById("total").innerText = "Total: ₹" + total;
-}
-</script>
+<footer>
+  <p>© 2026 Rocket Selling | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
