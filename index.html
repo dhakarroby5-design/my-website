@@ -189,3 +189,37 @@ footer {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
+<!-- LOGIN UI -->
+<input type="text" id="phone" placeholder="+91XXXXXXXXXX">
+<div id="recaptcha-container"></div>
+<button onclick="sendOTP()">Send OTP</button>
+
+<input type="text" id="otp" placeholder="Enter OTP">
+<button onclick="verifyOTP()">Verify</button>
+
+<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+
+<script>
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+
+function sendOTP() {
+  const phone = document.getElementById("phone").value;
+  firebase.auth().signInWithPhoneNumber(phone, window.recaptchaVerifier)
+    .then(function (confirmationResult) {
+      window.confirmationResult = confirmationResult;
+      alert("OTP Sent");
+    })
+    .catch(function (error) {
+      alert(error.message);
+    });
+}
+
+function verifyOTP() {
+  const code = document.getElementById("otp").value;
+  confirmationResult.confirm(code).then(function (result) {
+    alert("Login Successful: " + result.user.phoneNumber);
+  }).catch(function (error) {
+    alert("Wrong OTP");
+  });
+}
+</script>
