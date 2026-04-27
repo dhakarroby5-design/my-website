@@ -223,3 +223,31 @@ function verifyOTP() {
   });
 }
 </script>
+<script type="module">
+import { getFirestore, collection, getDocs } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const db = getFirestore();
+
+// Data fetch
+async function getData() {
+  const querySnapshot = await getDocs(collection(db, "Product"));
+  
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+
+    // HTML में दिखाने के लिए
+    document.body.innerHTML += `
+      <div style="border:1px solid black; padding:10px; margin:10px;">
+        <h2>${data["Smart marketing"]}</h2>
+        <p>Price: ₹${data.Price}</p>
+        <a href="${data.link}" target="_blank">
+          Buy Now
+        </a>
+      </div>
+    `;
+  });
+}
+
+getData();
+</script>
