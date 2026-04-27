@@ -1,113 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Rocket Selling - Roby Dhakar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <style>
-    body { margin: 0; font-family: Arial; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocket Selling</title>
 
-    header {
-      background: #ff3c00;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+}
 
-    nav {
-      background: #222;
-      padding: 10px;
-      text-align: center;
-    }
+/* HEADER */
+header {
+    background: linear-gradient(45deg, #ff3c00, #ff7a00);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
 
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-    }
+/* NAVBAR */
+nav {
+    background: #111;
+    text-align: center;
+    padding: 12px;
+}
 
-    .hero {
-      padding: 40px;
-      text-align: center;
-      background: #f4f4f4;
-    }
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    .btn {
-      background: green;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 10px;
-    }
+/* CONTAINER */
+.container {
+    padding: 20px;
+}
 
-    section {
-      padding: 20px;
-    }
+/* PRODUCT CARD */
+.product {
+    background: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
 
-    .product {
-      border: 1px solid #ddd;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 5px;
-    }
+.product h3 {
+    margin: 0 0 10px;
+}
 
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-  </style>
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.buy {
+    background: green;
+    color: white;
+}
+
+.buy:hover {
+    background: darkgreen;
+}
+
+.social {
+    background: #E1306C;
+    color: white;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    background: #25D366;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>🚀 Rocket Selling</h1>
-  <p>By Roby Dhakar | Best Deals All Over India</p>
+    <h1>🚀 Rocket Selling</h1>
+    <p>Best Deals All Over India</p>
 </header>
 
 <nav>
-  <a href="#">Home</a>
-  <a href="#products">Products</a>
-  <a href="#contact">Contact</a>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero">
-  <h2>Welcome to Rocket Selling</h2>
-  <p>Best affiliate products at lowest price</p>
-  <a class="btn" href="https://wa.me/919202728243">Order on WhatsApp</a>
+<div class="container" id="products">
+
+    <h2>🔥 Trending Products</h2>
+
+    <!-- PRODUCT 1 -->
+    <div class="product">
+        <h3>Wireless Earbuds</h3>
+        <p>High quality sound | Budget price</p>
+        <a href="PASTE_AMAZON_LINK" target="_blank" class="btn buy">Buy Now</a>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product">
+        <h3>Smart Watch</h3>
+        <p>Fitness tracking + Stylish look</p>
+        <a href="PASTE_FLIPKART_LINK" target="_blank" class="btn buy">Buy Now</a>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product">
+        <h3>Men T-Shirt</h3>
+        <p>Latest fashion wear</p>
+        <a href="PASTE_MYNTRA_LINK" target="_blank" class="btn buy">Buy Now</a>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="product">
+        <h3>Kitchen Combo</h3>
+        <p>Useful daily items</p>
+        <a href="PASTE_MEESHO_LINK" target="_blank" class="btn buy">Buy Now</a>
+    </div>
+
 </div>
 
-<section id="products">
-  <h2>🔥 Featured Products</h2>
+<!-- INSTAGRAM SECTION -->
+<div style="text-align:center; margin: 25px;">
+    <h3>Follow on Instagram</h3>
+    <a href="https://instagram.com/robydhakar" target="_blank" class="btn social">
+        Follow @RobyDhakar
+    </a>
+</div>
 
-  <div class="product">
-    <h3>Product 1</h3>
-    <p>Best quality product at amazing price.</p>
-    <a class="btn" href="#">Buy Now</a>
-  </div>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919202728243" class="whatsapp-float">
+    💬 Chat Now
+</a>
 
-  <div class="product">
-    <h3>Product 2</h3>
-    <p>High demand product. Limited stock!</p>
-    <a class="btn" href="#">Buy Now</a>
-  </div>
-
-</section>
-
-<section id="contact">
-  <h2>📞 Contact Us</h2>
-  <p>Phone: 9202728243</p>
-  <p>Location: Gwalior | Delivery All India</p>
-
-  <a class="btn" href="https://wa.me/919202728243">Chat on WhatsApp</a>
-</section>
-
-<footer>
-  <p>© 2026 Rocket Selling | All Rights Reserved</p>
+<footer id="contact">
+    <p>📞 Contact: 9202728243</p>
+    <p>© 2026 Rocket Selling | All Rights Reserved</p>
 </footer>
 
 </body>
