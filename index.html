@@ -1,53 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Rocket Selling</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
-
 body{
+margin:0;
+font-family:Arial;
 background:#f3f3f3;
 }
 
-/* HEADER */
-
 header{
 background:#ff5a00;
-padding:40px 20px;
-text-align:center;
 color:white;
+text-align:center;
+padding:30px;
 }
 
 header h1{
+margin:0;
 font-size:45px;
 }
 
 header p{
 font-size:20px;
-margin-top:10px;
 }
-
-/* PRODUCTS */
 
 .container{
-width:90%;
-margin:auto;
-padding:40px 0;
+padding:20px;
 }
 
-.section-title{
-font-size:40px;
-margin-bottom:30px;
+.title{
+font-size:38px;
+font-weight:bold;
+margin-bottom:25px;
 }
 
 .products{
@@ -58,76 +48,70 @@ gap:25px;
 
 .card{
 background:white;
-border-radius:18px;
+border-radius:15px;
 overflow:hidden;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card img{
 width:100%;
-height:260px;
+height:250px;
 object-fit:cover;
 }
 
-.card-content{
+.content{
 padding:20px;
 }
 
-.card h2{
-font-size:28px;
-margin-bottom:10px;
+.content h2{
+font-size:30px;
+margin:0 0 10px;
 }
 
-.card p{
+.content p{
 font-size:18px;
 color:#555;
 }
 
-.buy-btn{
+.btn{
 display:inline-block;
-margin-top:18px;
+margin-top:15px;
 background:green;
 color:white;
+padding:14px 25px;
 text-decoration:none;
-padding:14px 24px;
 border-radius:10px;
 font-size:18px;
 font-weight:bold;
 }
 
-/* CONTACT */
-
 .contact{
 background:white;
-padding:30px;
-margin-top:50px;
-border-radius:18px;
+padding:25px;
+margin-top:40px;
+border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .contact h2{
 font-size:35px;
-margin-bottom:20px;
 }
 
 .contact p{
 font-size:20px;
-margin:10px 0;
 }
 
 .contact a{
 color:#ff5a00;
-text-decoration:none;
 font-weight:bold;
+text-decoration:none;
 }
 
-/* FLOAT BUTTONS */
-
-.call-btn{
+.whatsapp{
 position:fixed;
+bottom:20px;
 right:20px;
-bottom:90px;
-background:#007bff;
+background:#25D366;
 color:white;
 padding:15px 22px;
 border-radius:50px;
@@ -135,11 +119,11 @@ text-decoration:none;
 font-size:20px;
 }
 
-.whatsapp-btn{
+.call{
 position:fixed;
+bottom:90px;
 right:20px;
-bottom:20px;
-background:#25D366;
+background:#007bff;
 color:white;
 padding:15px 22px;
 border-radius:50px;
@@ -163,7 +147,9 @@ font-size:20px;
 
 <div class="container">
 
-<h2 class="section-title">🔥 Trending Products</h2>
+<div class="title">
+🔥 Trending Products
+</div>
 
 <div class="products">
 
@@ -173,13 +159,13 @@ font-size:20px;
 
 <img src="https://m.media-amazon.com/images/I/61O7JY2P3FL._SL1500_.jpg">
 
-<div class="card-content">
+<div class="content">
 
 <h2>Vaseline Deep Moisture</h2>
 
 <p>48HR Moisturisation Lotion</p>
 
-<a class="buy-btn"
+<a class="btn"
 href="https://www.amazon.in/dp/B08M4QF7V9?linkCode=ll2&tag=robyselling-21"
 target="_blank">
 
@@ -196,13 +182,13 @@ Buy Now
 
 <img src="https://m.media-amazon.com/images/I/61abLr1KjSL._SL1200_.jpg">
 
-<div class="card-content">
+<div class="content">
 
 <h2>Vivo T4 Ultra 5G</h2>
 
 <p>Premium 5G Smartphone</p>
 
-<a class="buy-btn"
+<a class="btn"
 href="https://www.amazon.in/vivo-Passion-Storage-Additional-Exchange/dp/B0GHQVR1N8?linkCode=ll2&tag=robyselling-21"
 target="_blank">
 
@@ -219,13 +205,13 @@ Buy Now
 
 <img src="https://m.media-amazon.com/images/I/71gdzD3z1FL._UY695_.jpg">
 
-<div class="card-content">
+<div class="content">
 
 <h2>Campus Revolt Sneakers</h2>
 
 <p>Stylish Sneakers For Men</p>
 
-<a class="buy-btn"
+<a class="btn"
 href="https://www.amazon.in/Campus-Mens-Revolt-Sneakers-Off/dp/B0DYXVK62J"
 target="_blank">
 
@@ -242,13 +228,13 @@ Buy Now
 
 <img src="https://m.media-amazon.com/images/I/71qQwK9v7-L._UY695_.jpg">
 
-<div class="card-content">
+<div class="content">
 
 <h2>Campus Stomp Sneakers</h2>
 
 <p>Comfortable Stylish Shoes</p>
 
-<a class="buy-btn"
+<a class="btn"
 href="https://www.amazon.in/Campus-Mens-Stomp-Cream-Sneakers/dp/B0GFXJGK4N"
 target="_blank">
 
@@ -260,8 +246,6 @@ Buy Now
 </div>
 
 </div>
-
-<!-- CONTACT -->
 
 <div class="contact">
 
@@ -297,15 +281,13 @@ Chat on WhatsApp
 
 </div>
 
-<!-- FLOAT BUTTONS -->
-
-<a class="call-btn" href="tel:9202728243">
+<a class="call" href="tel:9202728243">
 
 📞 Call
 
 </a>
 
-<a class="whatsapp-btn"
+<a class="whatsapp"
 href="https://wa.me/919202728243">
 
 💬 Chat Now
