@@ -1,103 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Rocket Selling</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f2f2f2;
-    <h1>🔥 Best Deals</h1>
-<div id="products"></div>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
 }
 
 /* HEADER */
-header {
-    background: linear-gradient(45deg, #ff3c00, #ff7a00);
-    color: white;
-    text-align: center;
-    padding: 25px;
+
+header{
+    background:#ff5a00;
+    color:white;
+    text-align:center;
+    padding:35px 20px;
+}
+
+header h1{
+    font-size:42px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:20px;
 }
 
 /* NAVBAR */
-nav {
-    background: #111;
-    text-align: center;
-    padding: 12px;
+
+nav{
+    background:black;
+    padding:15px;
+    text-align:center;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:18px;
+    font-weight:bold;
 }
 
-/* CONTAINER */
-.container {
-    padding: 20px;
+/* SECTION */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 0;
+}
+
+.section-title{
+    font-size:35px;
+    margin-bottom:25px;
 }
 
 /* PRODUCT CARD */
-.product {
-    background: white;
-    margin: 15px 0;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
-.product h3 {
-    margin: 0 0 10px;
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
 }
 
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    padding: 10px 18px;
-    margin-top: 10px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
+.card:hover{
+    transform:translateY(-5px);
 }
 
-.buy {
-    background: green;
-    color: white;
+.card img{
+    width:100%;
+    border-radius:15px;
 }
 
-.buy:hover {
-    background: darkgreen;
+.card h2{
+    margin-top:15px;
+    font-size:28px;
 }
 
-.social {
-    background: #E1306C;
-    color: white;
+.card p{
+    margin-top:10px;
+    color:#555;
+    font-size:18px;
 }
 
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 15px;
-    background: #25D366;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+/* BUTTON */
+
+.buy-btn{
+    display:inline-block;
+    margin-top:18px;
+    background:green;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.buy-btn:hover{
+    background:#006400;
+}
+
+/* CONTACT */
+
+.contact{
+    margin-top:60px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact h2{
+    margin-bottom:20px;
+    font-size:32px;
+}
+
+.contact p{
+    font-size:20px;
+    margin:10px 0;
+}
+
+.contact a{
+    color:#ff5a00;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* FLOAT BUTTONS */
+
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    color:white;
+    padding:15px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.call-btn{
+    position:fixed;
+    bottom:90px;
+    right:20px;
+    background:#007bff;
+    color:white;
+    padding:15px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
-footer {
-    background: #111;
-    color: white;
-    text-align: center;
-    padding: 20px;
+
+footer{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
 }
+
 </style>
 </head>
 
@@ -110,155 +197,97 @@ footer {
 
 <nav>
     <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
 </nav>
 
-<div class="container" id="products">
+<div class="container">
 
-    <h2>🔥 Trending Products</h2>
+    <h2 class="section-title">🔥 Trending Products</h2>
 
-    <!-- PRODUCT 1 -->
-    <div class="product">
-        <h3>Wireless Earbuds</h3>
-        <p>High quality sound | Budget price</p>
-        <a href="https://www.amazon.in/s?bbn=81107432031&rh=n%3A81107432031%2Cp_85%3A10440599031&_encoding=UTF8&content-id=amzn1.sym.94cc05a3-43df-4c7f-8e72-95269ab45434&pd_rd_r=9a5a804a-06b2-448e-b741-e6293f69e957&pd_rd_w=Ccn6j&pd_rd_wg=sQp3h&pf_rd_p=94cc05a3-43df-4c7f-8e72-95269ab45434&pf_rd_r=ZD4FCVJR33P4QBJSZ9SS&linkCode=ll2&tag=robyselling-21&linkId=877bee1fabcdc9ab1485fb31b85f6ff8&ref_=as_li_ss_tl" target="_blank" class="btn buy">Buy Now</a>
+    <div class="products">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="card">
+            <img src="https://m.media-amazon.com/images/I/61O7JY2P3FL._SL1500_.jpg" alt="Vaseline Lotion">
+
+            <h2>Vaseline Deep Moisture</h2>
+
+            <p>
+                48HR Moisturisation | Soft & Healthy Skin
+            </p>
+
+            <a class="buy-btn"
+            href="https://www.amazon.in/Vaseline-Intensive-Restore-Lasting-Moisturisation/dp/B08M4QF7V9?_encoding=UTF8&pd_rd_w=6oUlx&content-id=amzn1.sym.9edad6de-f85d-41dd-a893-96a2a0223a93%3Aamzn1.symc.b1464ab7-6d6a-4fc8-be8f-f2e9bcc64228&pf_rd_p=9edad6de-f85d-41dd-a893-96a2a0223a93&pf_rd_r=XVXBVYF4724DMQRE8V5P&pd_rd_wg=0Y4e0&pd_rd_r=02791ec3-98d0-4ae8-be01-2428862aa4c9&th=1&linkCode=ll2&tag=robyselling-21&linkId=aa01dc2d2feecb8cbf769cba8a3477c7&ref_=as_li_ss_tl"
+            target="_blank">
+
+            Buy Now
+
+            </a>
+        </div>
+
+        <!-- NEW PRODUCT ADD EXAMPLE -->
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x300" alt="New Product">
+
+            <h2>Your Next Product</h2>
+
+            <p>
+                Add more affiliate products anytime
+            </p>
+
+            <a class="buy-btn" href="#">
+                Buy Now
+            </a>
+        </div>
+
     </div>
 
-    <!-- PRODUCT 2 -->
-    <div class="product">
-        <h3>Smart Watch</h3>
-        <p>Fitness tracking + Stylish look</p>
-        <a href="https://amzn.to/4cWtsCU" target="_blank" class="btn buy">Buy Now</a>
-    </div>
+    <!-- CONTACT -->
 
-    <!-- PRODUCT 3 -->
-    <div class="product">
-        <h3>Men T-Shirt</h3>
-        <p>Latest fashion wear</p>
-        <a href="https://amzn.to/4cWtsCU" target="_blank" class="btn buy">Buy Now</a>
-    </div>
+    <div class="contact">
 
-    <!-- PRODUCT 4 -->
-    <div class="product">
-        <h3>Kitchen Combo</h3>
-        <p>Useful daily items</p>
-        <a href="https://amzn.to/4cWtsCU" target="_blank" class="btn buy">Buy Now</a>
+        <h2>📞 Contact Owner</h2>
+
+        <p><strong>Name:</strong> Roby Dhakar</p>
+
+        <p>
+            <strong>Call:</strong>
+            <a href="tel:9202728243">
+                9202728243
+            </a>
+        </p>
+
+        <p>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/919202728243" target="_blank">
+                Chat on WhatsApp
+            </a>
+        </p>
+
     </div>
 
 </div>
 
-<!-- INSTAGRAM SECTION -->
-<div style="text-align:center; margin: 25px;">
-    <h3>Follow on Instagram</h3>
-    <a href="https://instagram.com/robydhakar" target="_blank" class="btn social">
-        Follow @RobyDhakar
-    </a>
-</div>
+<!-- FLOAT BUTTONS -->
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/919202728243" class="whatsapp-float">
-    💬 Chat Now
+<a class="call-btn" href="tel:9202728243">
+📞 Call
 </a>
 
-<footer id="contact">
-    <p>📞 Contact: 9202728243</p>
-    <p>© 2026 Rocket Selling | All Rights Reserved</p>
+<a class="whatsapp"
+href="https://wa.me/919202728243"
+target="_blank">
+
+💬 Chat Now
+
+</a>
+
+<footer>
+    © 2026 Rocket Selling | Made By Roby Dhakar
 </footer>
 
 </body>
 </html>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBXk2aBzX1zQgJcJraY1cfry8eDY6Y5qds",
-    authDomain: "rocket-selling.firebaseapp.com",
-    projectId: "rocket-selling",
-    storageBucket: "rocket-selling.firebasestorage.app",
-    messagingSenderId: "371318728532",
-    appId: "1:371318728532:web:0acb031f0ebb4cc6254ac1",
-    measurementId: "G-SXSZYB85X6"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
-<!-- LOGIN UI -->
-<input type="text" id="phone" placeholder="+91XXXXXXXXXX">
-<div id="recaptcha-container"></div>
-<button onclick="sendOTP()">Send OTP</button>
-
-<input type="text" id="otp" placeholder="Enter OTP">
-<button onclick="verifyOTP()">Verify</button>
-
-<script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
-
-<script>
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-
-function sendOTP() {
-  const phone = document.getElementById("phone").value;
-  firebase.auth().signInWithPhoneNumber(phone, window.recaptchaVerifier)
-    .then(function (confirmationResult) {
-      window.confirmationResult = confirmationResult;
-      alert("OTP Sent");
-    })
-    .catch(function (error) {
-      alert(error.message);
-    });
-}
-
-function verifyOTP() {
-  const code = document.getElementById("otp").value;
-  confirmationResult.confirm(code).then(function (result) {
-    alert("Login Successful: " + result.user.phoneNumber);
-  }).catch(function (error) {
-    alert("Wrong OTP");
-  });
-}
-</script>
-<script type="module">
-import { getFirestore, collection, getDocs } 
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-const db = getFirestore();
-
-// Data fetch
-async function getData() {
-  const querySnapshot = await getDocs(collection(db, "Product"));
-  
-  querySnapshot.forEach((doc) => {
-    const data = doc.data();
-
-    // HTML में दिखाने के लिए
-    document.body.innerHTML += `
-      <div style="border:1px solid black; padding:10px; margin:10px;">
-        document.getElementById("products").innerHTML +=
-        <p>Price: ₹${data.Price}</p>
-        <a href="${data.link}" target="_blank">
-          Buy Now
-        </a>
-      </div>
-    `;
-  });
-}
-
-getData();
-</script>
-<a href="https://amzn.to/xxxxxx" target="_blank"
-style="background:#ff9900;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;">
-Buy Now on Amazon
-</a>
