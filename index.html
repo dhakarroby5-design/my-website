@@ -48,6 +48,19 @@ nav a{
     font-size:20px;
     font-weight:bold;
 }
+/* SEARCH BOX */
+.search-box{
+    text-align:center;
+    padding:20px;
+}
+
+.search-box input{
+    width:80%;
+    padding:15px;
+    font-size:20px;
+    border-radius:10px;
+    border:2px solid #ccc;
+}
 
 /* SECTION */
 .section-title{
@@ -168,6 +181,10 @@ footer{
 </head>
 
 <body>
+<!-- SEARCH -->
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products...">
+</div>
 
 <!-- HEADER -->
 <header>
@@ -200,6 +217,19 @@ footer{
 </div>
 
 <!-- FLOAT BUTTONS -->
+<script>
+// SEARCH FUNCTION
+document.getElementById("searchInput").addEventListener("keyup", function () {
+
+    let value = this.value.toLowerCase();
+
+    let filtered = affiliateLinks.filter(product =>
+        product.title.toLowerCase().includes(value)
+    );
+
+    displayProducts(filtered);
+
+});
 <div class="float-buttons">
 
 <a class="call-btn" href="tel:9202728243">
@@ -215,6 +245,7 @@ footer{
 <footer>
 © 2026 Rocket Selling | All Rights Reserved
 </footer>
+</script>
 
 <script>
 
