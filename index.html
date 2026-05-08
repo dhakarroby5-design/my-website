@@ -1,216 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rocket Selling</title>
+<title>Roby Affiliate Store</title>
 
 <style>
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,sans-serif;
-}
-
 body{
-  background:#f2f2f2;
+    margin:0;
+    padding:0;
+    font-family:Arial;
+    background:#f2f2f2;
 }
 
 /* HEADER */
 
 header{
-  background:orange;
-  color:white;
-  text-align:center;
-  padding:20px;
+    background:orange;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
 header h1{
-  font-size:50px;
+    margin:0;
+    font-size:40px;
 }
 
 header p{
-  font-size:20px;
+    margin-top:10px;
+    font-size:20px;
 }
 
-/* NAVBAR */
+/* MENU */
 
 nav{
-  background:black;
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:18px;
+    background:black;
+    padding:15px;
+    text-align:center;
 }
 
 nav a{
-  color:white;
-  text-decoration:none;
-  font-size:20px;
-  font-weight:bold;
+    color:white;
+    text-decoration:none;
+    margin:20px;
+    font-size:22px;
+    font-weight:bold;
 }
 
 /* TITLE */
 
-.main-title{
-  font-size:70px;
-  font-weight:bold;
-  padding:30px;
+.section-title{
+    font-size:60px;
+    font-weight:bold;
+    margin:40px 30px;
 }
 
-/* PRODUCTS */
+/* PRODUCT AREA */
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:25px;
-  padding:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+    padding:20px;
 }
+
+/* CARD */
 
 .card{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
 }
+
+/* IMAGE */
 
 .card img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
 }
 
-.card-content{
-  padding:25px;
+/* CONTENT */
+
+.content{
+    padding:20px;
 }
 
-.card h2{
-  font-size:30px;
-  margin-bottom:15px;
+.content h2{
+    font-size:28px;
+    margin:0;
 }
 
-.card p{
-  font-size:18px;
-  color:#555;
-  margin-bottom:20px;
+.content p{
+    font-size:18px;
+    color:#555;
 }
+
+/* BUTTON */
 
 .buy-btn{
-  display:inline-block;
-  background:green;
-  color:white;
-  padding:18px 40px;
-  border-radius:15px;
-  text-decoration:none;
-  font-size:22px;
-  font-weight:bold;
+    display:inline-block;
+    background:green;
+    color:white;
+    padding:15px 35px;
+    border-radius:15px;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.buy-btn:hover{
+    background:darkgreen;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-  <h1>🚀 Rocket Selling</h1>
-
-  <p>Best Deals All Over India</p>
-
+    <h1>🚀 Roby Affiliate Store</h1>
+    <p>Best Deals All Over India</p>
 </header>
 
 <nav>
-
-  <a href="#">Home</a>
-
-  <a href="#">Products</a>
-
-  <a href="#">Contact</a>
-
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
 </nav>
 
-<h1 class="main-title">🔥 Trending Products</h1>
+<div class="section-title">
+🔥 Trending Products
+</div>
 
 <div class="products" id="products"></div>
 
 <script>
 
+/* PRODUCTS */
+
 const products = [
 
-  {
-    title:"Allen Solly Men Shirt",
-    description:"Stylish cotton casual shirt for men",
-    image:"https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf",
-    link:"https://www.amazon.in/Allen-Solly-Geometric-Regular-ASSFWMOF048848_White_40/dp/B07DN1BJ51"
-  },
+{
+title:"Allen Solly Men Shirt",
+description:"Stylish cotton casual shirt for men",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+},
 
-  {
-    title:"Campus Running Shoes",
-    description:"Stylish and comfortable running shoes",
-    image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-    link:"https://www.amazon.in/Campus-VETRO-L-Gry-V-ORG-Running/dp/B0GH1ZW586"
-  },
+{
+title:"Campus Running Shoes",
+description:"Stylish and comfortable running shoes",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+},
 
-  {
-    title:"Peter England Trousers",
-    description:"Stylish casual trousers",
-    image:"https://images.unsplash.com/photo-1473966968600-fa801b869a1a",
-    link:"https://www.amazon.in/Peter-England-Casual-Pants-PCTFSSSPA79395_Grey/dp/B0DT9RMH2T"
-  },
+{
+title:"Peter England Trousers",
+description:"Grey casual trousers for men",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+},
 
-  {
-    title:"Stylish Sunglasses",
-    description:"Premium stylish sunglasses",
-    image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083",
-    link:"https://www.amazon.in/Sheomy-glasses-MC-Rectangle-Sunglasses/dp/B0C28SKXYM"
-  },
+{
+title:"Stylish Sunglasses",
+description:"Rectangle stylish sunglasses",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+},
 
-  {
-    title:"Samsung S24 Ultra 5G",
-    description:"Premium Samsung flagship smartphone",
-    image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-    link:"https://www.amazon.in/Samsung-Storage-Enhanced-Unmatched-Nightography/dp/B0FDB9H277"
-  },
+{
+title:"Samsung S24 Ultra 5G",
+description:"Premium Samsung smartphone",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+},
 
-  {
-    title:"Havells Beard Trimmer",
-    description:"Rechargeable beard trimmer",
-    image:"https://images.unsplash.com/photo-1517841905240-472988babdf9",
-    link:"https://www.amazon.in/HAVELLS-BT5100C-Rechargeable-Beard-Trimmer/dp/B07C6CSF6K"
-  }
+{
+title:"Havells Beard Trimmer",
+description:"Rechargeable beard trimmer",
+image:"IMAGE_LINK_HERE",
+link:"AMAZON_LINK_HERE"
+}
 
 ];
 
-const productContainer = document.getElementById("products");
+/* SHOW PRODUCTS */
 
-products.forEach(product=>{
+const productsDiv = document.getElementById("products");
 
-  productContainer.innerHTML += `
+products.forEach(product => {
 
-  <div class="card">
+productsDiv.innerHTML += `
 
-    <img src="${product.image}">
+<div class="card">
 
-    <div class="card-content">
+<img src="${product.image}" alt="${product.title}">
 
-      <h2>${product.title}</h2>
+<div class="content">
 
-      <p>${product.description}</p>
+<h2>${product.title}</h2>
 
-      <a href="${product.link}" target="_blank" class="buy-btn">
-      Buy Now
-      </a>
+<p>${product.description}</p>
 
-    </div>
+<a class="buy-btn" href="${product.link}" target="_blank">
+Buy Now
+</a>
 
-  </div>
+</div>
 
-  `;
+</div>
+
+`;
 
 });
 
