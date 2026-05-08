@@ -1,336 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rocket Selling</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body{
-    background:#f2f2f2;
-}
+  <title>Roby Affiliate Store</title>
 
-/* HEADER */
-header{
-    background:orange;
-    color:white;
-    text-align:center;
-    padding:25px 10px;
-}
+  <style>
 
-header h1{
-    font-size:45px;
-}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-header p{
-    font-size:20px;
-    margin-top:8px;
-}
+    body{
+      background:#f4f4f4;
+      padding:20px;
+    }
 
-/* NAVBAR */
-nav{
-    background:black;
-    padding:15px;
-    text-align:center;
-}
+    h1{
+      text-align:center;
+      margin-bottom:25px;
+      color:#222;
+    }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 20px;
-    font-size:20px;
-    font-weight:bold;
-}
-/* SEARCH BOX */
-.search-box{
-    text-align:center;
-    padding:20px;
-}
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
 
-.search-box input{
-    width:80%;
-    padding:15px;
-    font-size:20px;
-    border-radius:10px;
-    border:2px solid #ccc;
-}
+    .card{
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
 
-/* SECTION */
-.section-title{
-    font-size:50px;
-    padding:30px 20px 10px;
-}
+    .card:hover{
+      transform:translateY(-5px);
+    }
 
-/* PRODUCT GRID */
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    padding:20px;
-}
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
 
-/* PRODUCT CARD */
-.card{
-    background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 4px 10px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
+    .card-content{
+      padding:15px;
+    }
 
-.card:hover{
-    transform:translateY(-5px);
-}
+    .card h2{
+      font-size:20px;
+      margin-bottom:10px;
+    }
 
-.card img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    background:#ddd;
-}
+    .card p{
+      color:#555;
+      margin-bottom:15px;
+      line-height:1.5;
+    }
 
-.card-content{
-    padding:20px;
-}
+    .buy-btn{
+      display:inline-block;
+      padding:10px 18px;
+      background:#ff9900;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+    }
 
-.card h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
+    .buy-btn:hover{
+      background:#e68a00;
+    }
 
-.card p{
-    font-size:22px;
-    color:#555;
-    margin-bottom:20px;
-}
+  </style>
 
-.buy-btn{
-    display:inline-block;
-    background:green;
-    color:white;
-    padding:14px 30px;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:24px;
-    font-weight:bold;
-}
-
-/* CONTACT */
-.contact{
-    background:white;
-    margin:30px 20px;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-}
-
-.contact h2{
-    font-size:45px;
-    margin-bottom:20px;
-}
-
-.contact p{
-    font-size:28px;
-    margin:10px 0;
-}
-
-/* FLOAT BUTTONS */
-.float-buttons{
-    position:fixed;
-    right:15px;
-    bottom:20px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.float-buttons a{
-    text-decoration:none;
-    color:white;
-    padding:15px 25px;
-    border-radius:40px;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.call-btn{
-    background:#007bff;
-}
-
-.whatsapp-btn{
-    background:#25d366;
-}
-
-/* FOOTER */
-footer{
-    background:black;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:30px;
-    font-size:20px;
-}
-</style>
 </head>
 
 <body>
-<!-- SEARCH -->
-<div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search products...">
-</div>
 
-<!-- HEADER -->
-<header>
-    <h1>🚀 Rocket Selling</h1>
-    <p>Best Deals All Over India</p>
-</header>
+  <h1>Roby Affiliate Store</h1>
 
-<!-- NAVBAR -->
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Contact</a>
-</nav>
+  <div class="products" id="products"></div>
 
-<!-- TITLE -->
-<h1 class="section-title">🔥 Trending Products</h1>
+  <script>
 
-<!-- PRODUCTS -->
-<div class="products" id="product-container"></div>
+    /*
+    =========================
+    PRODUCT LIST
+    NAYA PRODUCT NICHE ADD KARO
+    =========================
+    */
 
-<!-- CONTACT -->
-<div class="contact">
-    <h2>📞 Contact Owner</h2>
+    const products = [
 
-    <p><b>Name:</b> Roby Dhakar</p>
+      {
+        title: "Allen Solly Men Shirt",
+        description: "Stylish cotton casual shirt for men",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-190344-2.png",
+        link: "https://www.amazon.in/Allen-Solly-Geometric-Regular-ASSFWMOF048848_White_40/dp/B07DN1BJ51"
+      },
 
-    <p><b>Call:</b> 9202728243</p>
+      {
+        title: "Campus Running Shoes",
+        description: "Comfortable running shoes",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-214659-2.png",
+        link: "https://www.amazon.in/Campus-VETRO-L-Gry-V-ORG-Running/dp/B0GH1ZW586"
+      },
 
-    <p><b>WhatsApp:</b> Chat on WhatsApp</p>
-</div>
+      {
+        title: "Peter England Trousers",
+        description: "Grey casual trousers for men",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-215712-2.png",
+        link: "https://www.amazon.in/Peter-England-Casual-Pants-PCTFSSSPA79395_Grey/dp/B0DT9RMH2T"
+      },
 
-<!-- FLOAT BUTTONS -->
-<div class="float-buttons">
+      {
+        title: "Stylish Sunglasses",
+        description: "Rectangle stylish sunglasses",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220146-2.png",
+        link: "https://www.amazon.in/Sheomy-glasses-MC-Rectangle-Sunglasses/dp/B0C28SKXYM"
+      },
 
-    <a class="call-btn" href="tel:9202728243">
-        📞 Call
-    </a>
+      {
+        title: "Samsung S24 Ultra 5G",
+        description: "Premium Samsung smartphone",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220559-2.png",
+        link: "https://www.amazon.in/Samsung-Storage-Enhanced-Unmatched-Nightography/dp/B0FDB9H277"
+      },
 
-    <a class="whatsapp-btn" href="https://wa.me/919202728243">
-        💬 Chat Now
-    </a>
+      {
+        title: "Havells Beard Trimmer",
+        description: "Rechargeable beard trimmer",
+        image: "https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220958-2.png",
+        link: "https://www.amazon.in/HAVELLS-BT5100C-Rechargeable-Beard-Trimmer/dp/B07C6CSF6K"
+      }
 
-</div>
+    ];
 
-<footer>
-    © 2026 Rocket Selling | All Rights Reserved
-</footer>
 
-<script>
-// SEARCH FUNCTION
-document.getElementById("searchInput").addEventListener("keyup", function () {
 
-    let value = this.value.toLowerCase();
+    /*
+    =========================
+    PRODUCT SHOW CODE
+    =========================
+    */
 
-    let filtered = affiliateLinks.filter(product =>
-        product.title.toLowerCase().includes(value)
-    );
+    const productContainer = document.getElementById("products");
 
-    displayProducts(filtered);
+    products.forEach(product => {
 
-});
-/* =======================================================
-   SIRF YAHA PRODUCT ADD KARNE HAI
-   NEW PRODUCT DALNE KE LIYE BAS
-   NEECHE EK NEW LINE COPY KARO
-======================================================= */
+      productContainer.innerHTML += `
 
-const affiliateLinks = [
+        <div class="card">
 
-{
+          <img src="${product.image}" alt="${product.title}">
 
-title:"Allen Solly Men Shirt",
-description:"Stylish cotton casual shirt for men",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-190344~2.png",
-link:"https://www.amazon.in/Allen-Solly-Geometric-Regular-ASSFWM0F048848_White_40/dp/B07DN1BJ51"
-},
+          <div class="card-content">
 
-{
-title:"Campus Running Shoes",
-description:"Stylish and comfortable running shoes",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-214659~2.png",
-link:"https://www.amazon.in/Campus-VETRO-L-Gry-V-ORG-Running/dp/B0GH1ZW586?pd_rd_w=euJV5&content-id=amzn1.sym.41279fa1-dd23-4c70-9745-af6d0ebf3670%3Aamzn1.symc.30e3dbb4-8dd8-4bad-b7a1-a45bcdbc49b8&pf_rd_p=41279fa1-dd23-4c70-9745-af6d0ebf3670&pf_rd_r=MWFFJ3EAEB5EGZFTHC0Y&pd_rd_wg=Tw4FX&pd_rd_r=0664e79c-03c1-4e0c-9b4d-6821d72a4d56&pd_rd_i=B0GH1ZW586&th=1&psc=1&linkCode=ll2&tag=robyselling-21&linkId=c0c16e43130ff407101723be07ebadc6&ref_=as_li_ss_tl"
-},
+            <h2>${product.title}</h2>
 
-{
-title:"Peter England Trousers",
-description:"Stylish grey casual pants for men",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-215712~2.png",
-link:"https://www.amazon.in/Peter-England-Casual-Pants-PCTFSSSPA79395_Grey/dp/B0DT9RMH2T?linkCode=ll2&tag=robyselling-21"
-},
+            <p>${product.description}</p>
 
-{
-title:"Stylish Sunglasses",
-description:"Rectangle stylish sunglasses for men",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220146~2.png",
-link:"https://www.amazon.in/Sheomy-glasses-MC-Rectangle-Sunglasses/dp/B0C28SKXYM?linkCode=ll2&tag=robyselling-21"
-},
+            <a href="${product.link}" target="_blank" class="buy-btn">
+              Buy Now
+            </a>
 
-{
-title:"Samsung S24 Ultra 5G",
-description:"Premium flagship Samsung smartphone",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220559~2.png",
-link:"https://www.amazon.in/Samsung-Storage-Enhanced-Unmatched-Nightography/dp/B0FDB9H277?linkCode=ll2&tag=robyselling-21"
-},
+          </div>
 
-{
-title:"Havells Beard Trimmer",
-description:"Rechargeable beard trimmer for men",
-image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220958~2.png",
-link:"https://www.amazon.in/HAVELLS-BT5100C-Rechargeable-Beard-Trimmer/dp/B07C6CSF6K?linkCode=ll2&tag=robyselling-21"
-}
-    
-];
+        </div>
 
-/* =======================================================
-   AUTOMATIC PRODUCT CREATE
-======================================================= */
+      `;
 
-const container = document.getElementById("product-container");
+    });
 
-affiliateLinks.forEach(product => {
 
-container.innerHTML += `
 
-<div class="card">
+    /*
+    =========================
+    NAYA PRODUCT ADD KARNE KA FORMAT
+    COPY KARKE LAST ME PASTE KARO
+    =========================
 
-<img src="${product.image}" alt="${product.title}">
+    ,
 
-<div class="card-content">
+    {
+      title: "Product Name",
+      description: "Product Description",
+      image: "IMAGE LINK",
+      link: "AMAZON AFFILIATE LINK"
+    }
 
-<h2>${product.title}</h2>
+    =========================
+    */
 
-<p>${product.description}</p>
-
-<a class="buy-btn" href="${product.link}" target="_blank">
-Buy Now
-</a>
-
-</div>
-</div>
-
-`;
-
-});
-
-</script>
+  </script>
 
 </body>
 </html>
