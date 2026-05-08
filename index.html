@@ -8,10 +8,14 @@
 
 <style>
 
-body{
+*{
     margin:0;
     padding:0;
-    font-family:Arial;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
     background:#f2f2f2;
 }
 
@@ -25,20 +29,19 @@ header{
 }
 
 header h1{
-    margin:0;
-    font-size:40px;
+    font-size:50px;
+    margin-bottom:10px;
 }
 
 header p{
-    margin-top:10px;
-    font-size:20px;
+    font-size:24px;
 }
 
-/* MENU */
+/* NAVBAR */
 
 nav{
     background:black;
-    padding:15px;
+    padding:18px;
     text-align:center;
 }
 
@@ -46,25 +49,25 @@ nav a{
     color:white;
     text-decoration:none;
     margin:20px;
-    font-size:22px;
+    font-size:26px;
     font-weight:bold;
 }
 
 /* TITLE */
 
 .section-title{
-    font-size:60px;
+    font-size:70px;
     font-weight:bold;
     margin:40px 30px;
 }
 
-/* PRODUCT AREA */
+/* PRODUCTS */
 
 .products{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:30px;
-    padding:20px;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    padding:25px;
 }
 
 /* CARD */
@@ -83,6 +86,7 @@ nav a{
     height:320px;
     object-fit:cover;
     display:block;
+    background:#ddd;
 }
 
 /* CONTENT */
@@ -92,13 +96,14 @@ nav a{
 }
 
 .content h2{
-    font-size:28px;
-    margin:0;
+    font-size:32px;
+    margin-bottom:15px;
 }
 
 .content p{
-    font-size:18px;
+    font-size:22px;
     color:#555;
+    margin-bottom:20px;
 }
 
 /* BUTTON */
@@ -107,16 +112,57 @@ nav a{
     display:inline-block;
     background:green;
     color:white;
-    padding:15px 35px;
-    border-radius:15px;
     text-decoration:none;
-    font-size:22px;
+    padding:16px 40px;
+    border-radius:15px;
+    font-size:26px;
     font-weight:bold;
-    margin-top:10px;
 }
 
-.buy-btn:hover{
-    background:darkgreen;
+/* MOBILE */
+
+@media(max-width:700px){
+
+header h1{
+    font-size:36px;
+}
+
+header p{
+    font-size:18px;
+}
+
+nav a{
+    font-size:18px;
+    margin:10px;
+}
+
+.section-title{
+    font-size:42px;
+}
+
+.products{
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    padding:15px;
+}
+
+.card img{
+    height:220px;
+}
+
+.content h2{
+    font-size:20px;
+}
+
+.content p{
+    font-size:14px;
+}
+
+.buy-btn{
+    font-size:16px;
+    padding:12px 24px;
+}
+
 }
 
 </style>
@@ -125,7 +171,7 @@ nav a{
 <body>
 
 <header>
-    <h1>🚀 Roby Affiliate Store</h1>
+    <h1>🚀 Rocket Selling</h1>
     <p>Best Deals All Over India</p>
 </header>
 
@@ -143,55 +189,51 @@ nav a{
 
 <script>
 
-/* PRODUCTS */
-
 const products = [
 
 {
 title:"Allen Solly Men Shirt",
 description:"Stylish cotton casual shirt for men",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-190344-2.png",
+link:"https://www.amazon.in/"
 },
 
 {
 title:"Campus Running Shoes",
 description:"Stylish and comfortable running shoes",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-214659-2.png",
+link:"https://www.amazon.in/"
 },
 
 {
 title:"Peter England Trousers",
 description:"Grey casual trousers for men",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-215712-2.png",
+link:"https://www.amazon.in/"
 },
 
 {
 title:"Stylish Sunglasses",
 description:"Rectangle stylish sunglasses",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220146-2.png",
+link:"https://www.amazon.in/"
 },
 
 {
 title:"Samsung S24 Ultra 5G",
 description:"Premium Samsung smartphone",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220559-2.png",
+link:"https://www.amazon.in/"
 },
 
 {
 title:"Havells Beard Trimmer",
 description:"Rechargeable beard trimmer",
-image:"IMAGE_LINK_HERE",
-link:"AMAZON_LINK_HERE"
+image:"https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220958-2.png",
+link:"https://www.amazon.in/"
 }
 
 ];
-
-/* SHOW PRODUCTS */
 
 const productsDiv = document.getElementById("products");
 
