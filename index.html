@@ -1,297 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+export default function RocketSellingWebsite() { const amazonProducts = [ { name: "Wireless Earbuds", image: "https://images.unsplash.com/photo-1588423771073-b8903fbb85b5?q=80&w=1200&auto=format&fit=crop", price: "₹1,999", link: "#", }, { name: "Smart Watch", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop", price: "₹2,499", link: "#", }, ];
 
-<title>Roby Affiliate Store</title>
+const meeshoProducts = [ { name: "Fashion Saree", image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1200&auto=format&fit=crop", price: "₹899", link: "#", }, ];
 
-<style>
+const myntraProducts = [ { name: "Stylish Shoes", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop", price: "₹1,499", link: "#", }, ];
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+const flipkartProducts = [ { name: "Gaming Phone", image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop", price: "₹14,999", link: "#", }, ];
 
-body{
-background:#f3f3f3;
-}
+const ProductSection = ({ title, products, color }) => ( <section className="mb-14" id={title.toLowerCase()}> <div className="flex items-center justify-between mb-6"> <h2 className={text-3xl font-bold ${color}}>{title}</h2> <span className="bg-white/10 px-4 py-2 rounded-full text-sm"> {products.length} Products </span> </div>
 
-/* HEADER */
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {products.map((product, index) => (
+      <div
+        key={index}
+        className="bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-105 transition duration-300"
+      >
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-64 object-cover"
+        />
 
-header{
-background:orange;
-color:white;
-text-align:center;
-padding:25px 10px;
-}
+        <div className="p-5">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">
+            {product.name}
+          </h3>
 
-header h1{
-font-size:45px;
-font-weight:bold;
-}
+          <p className="text-lg text-green-600 font-semibold mb-4">
+            {product.price}
+          </p>
 
-header p{
-font-size:18px;
-margin-top:10px;
-}
+          <a
+            href={product.link}
+            target="_blank"
+            rel="noreferrer"
+            className="block text-center bg-black text-white py-3 rounded-2xl font-semibold hover:bg-gray-800"
+          >
+            Buy Now
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
 
-/* NAVBAR */
+  <div className="mt-8 bg-white/10 border border-white/20 rounded-3xl p-6">
+    <h3 className="text-2xl font-bold mb-3">Add Your Own Product</h3>
 
-nav{
-background:black;
-padding:18px;
-display:flex;
-justify-content:center;
-gap:40px;
-}
+    <p className="text-gray-200 leading-7">
+      Niche diya gaya product object copy karo aur apna affiliate product add karo:
+    </p>
 
-nav a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-}
+    <div className="bg-black text-green-400 p-4 rounded-2xl mt-4 overflow-auto text-sm">
 
-/* TITLE */
+{{ name: "Your Product Name", image: "PRODUCT IMAGE URL", price: "₹999", link: "YOUR AFFILIATE LINK" }} </div> </div> </section> );
 
-.section-title{
-font-size:60px;
-font-weight:bold;
-padding:40px 25px 20px;
-}
+return ( <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white"> <header className="sticky top-0 z-50 bg-black/70 backdrop-blur-lg border-b border-white/10"> <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col lg:flex-row items-center justify-between gap-4"> <div> <h1 className="text-4xl font-extrabold tracking-wide text-yellow-400"> Rocket Selling </h1> <p className="text-sm text-gray-300 mt-1"> Best Affiliate Products Store </p> </div>
 
-/* PRODUCTS */
+<nav className="flex flex-wrap gap-3 text-sm font-semibold">
+        <a href="#amazon" className="bg-yellow-500 text-black px-4 py-2 rounded-full">
+          Amazon
+        </a>
 
-.products{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
-padding:20px;
-}
+        <a href="#meesho" className="bg-pink-500 px-4 py-2 rounded-full">
+          Meesho
+        </a>
 
-/* CARD */
+        <a href="#myntra" className="bg-red-500 px-4 py-2 rounded-full">
+          Myntra
+        </a>
 
-.product-card{
-background:white;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
+        <a href="#flipkart" className="bg-blue-500 px-4 py-2 rounded-full">
+          Flipkart
+        </a>
+      </nav>
+    </div>
+  </header>
 
-/* IMAGE */
+  <section className="max-w-7xl mx-auto px-6 py-16">
+    <div className="text-center mb-16">
+      <h2 className="text-5xl font-black leading-tight mb-6">
+        India’s Smart Affiliate Shopping Website
+      </h2>
 
-.product-card img{
-width:100%;
-height:300px;
-object-fit:cover;
-display:block;
-}
+      <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-8">
+        Amazon, Meesho, Myntra aur Flipkart ke affiliate products ek hi website par.
+      </p>
+    </div>
 
-/* CONTENT */
+    <ProductSection
+      title="Amazon"
+      products={amazonProducts}
+      color="text-yellow-400"
+    />
 
-.product-info{
-padding:20px;
-}
+    <ProductSection
+      title="Meesho"
+      products={meeshoProducts}
+      color="text-pink-400"
+    />
 
-.product-info h2{
-font-size:28px;
-margin-bottom:10px;
-}
+    <ProductSection
+      title="Myntra"
+      products={myntraProducts}
+      color="text-red-400"
+    />
 
-.product-info p{
-font-size:16px;
-color:#555;
-margin-bottom:20px;
-}
+    <ProductSection
+      title="Flipkart"
+      products={flipkartProducts}
+      color="text-blue-400"
+    />
+  </section>
 
-/* BUTTON */
+  <footer className="bg-black border-t border-white/10 mt-10">
+    <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <h3 className="text-3xl font-bold text-yellow-400 mb-4">
+          Rocket Selling
+        </h3>
 
-.buy-btn{
-display:inline-block;
-background:green;
-color:white;
-padding:14px 35px;
-border-radius:15px;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;
-}
+        <p className="text-gray-300 leading-7">
+          Trusted Affiliate Shopping Platform.
+        </p>
+      </div>
 
-.buy-btn:hover{
-background:darkgreen;
-}
+      <div>
+        <h3 className="text-2xl font-bold mb-4">Contact Details</h3>
 
-/* MOBILE */
+        <div className="space-y-3 text-gray-300 text-lg">
+          <p>
+            <span className="font-bold text-white">Name:</span> Roby Dhakar
+          </p>
 
-@media(max-width:768px){
+          <p>
+            <span className="font-bold text-white">Phone:</span> 9202728243
+          </p>
 
-.section-title{
-font-size:38px;
-}
+          <p>
+            <span className="font-bold text-white">WhatsApp:</span> 9202728243
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-.products{
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-padding:15px;
-}
-
-.product-card img{
-height:220px;
-}
-
-.product-info h2{
-font-size:20px;
-}
-
-.product-info p{
-font-size:14px;
-}
-
-.buy-btn{
-font-size:16px;
-padding:12px 28px;
-}
-
-header h1{
-font-size:32px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
-<h1>🚀 Roby Affiliate Store</h1>
-<p>Best Deals All Over India</p>
-</header>
-
-<!-- NAVBAR -->
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Contact</a>
-</nav>
-
-<!-- TITLE -->
-
-<h1 class="section-title">🔥 Trending Products</h1>
-
-<!-- PRODUCTS -->
-
-<div class="products">
-
-<!-- PRODUCT 1 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-190344-2.png">
-
-<div class="product-info">
-<h2>Allen Solly Men Shirt</h2>
-<p>Stylish cotton casual shirt for men</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/Allen-Solly-Geometric-Regular-ASSFW0F048848_White_40/dp/B07DN1BJ51"
-target="_blank">
-Buy Now
-</a>
-</div>
+  <a
+    href="https://wa.me/919202728243"
+    target="_blank"
+    rel="noreferrer"
+    className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-5 rounded-full shadow-2xl text-2xl animate-bounce"
+  >
+    💬
+  </a>
 </div>
 
-<!-- PRODUCT 2 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-214659-2.png">
-
-<div class="product-info">
-<h2>Campus Running Shoes</h2>
-<p>Stylish and comfortable running shoes</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/Campus-VETRO-L-Gry-V-ORG-Running/dp/B0GH1ZW586"
-target="_blank">
-Buy Now
-</a>
-</div>
-</div>
-
-<!-- PRODUCT 3 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-215712-2.png">
-
-<div class="product-info">
-<h2>Peter England Trousers</h2>
-<p>Stylish grey casual pants for men</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/Peter-England-Casual-Pants-PCTFSSSPA79395_Grey/dp/B0DT9RMH2T"
-target="_blank">
-Buy Now
-</a>
-</div>
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220146-2.png">
-
-<div class="product-info">
-<h2>Stylish Sunglasses</h2>
-<p>Rectangle stylish sunglasses for men</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/Sheomy-glasses-MC-Rectangle-Sunglasses/dp/B0C28SKXYM"
-target="_blank">
-Buy Now
-</a>
-</div>
-</div>
-
-<!-- PRODUCT 5 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220559-2.png">
-
-<div class="product-info">
-<h2>Samsung S24 Ultra 5G</h2>
-<p>Premium flagship Samsung smartphone</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/Samsung-Storage-Enhanced-Unmatched-Nightography/dp/B0FDB9H277"
-target="_blank">
-Buy Now
-</a>
-</div>
-</div>
-
-<!-- PRODUCT 6 -->
-
-<div class="product-card">
-<img src="https://raw.githubusercontent.com/dhakarroby5-design/my-website/main/Screenshot_20260508-220958-2.png">
-
-<div class="product-info">
-<h2>Havells Beard Trimmer</h2>
-<p>Rechargeable beard trimmer for men</p>
-
-<a class="buy-btn"
-href="https://www.amazon.in/HAVELLS-BT5100C-Rechargeable-Beard-Trimmer/dp/B07C6CSF6K"
-target="_blank">
-Buy Now
-</a>
-</div>
-</div>
-
-</div>
-
-</body>
-</html>
+); }
